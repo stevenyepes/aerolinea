@@ -1,13 +1,19 @@
 {% extends "base.html"%}
 {% block title %} Detalle del Cliente{% endblock %}
 {% block content %}
-	<h2>{{cliente.nombre}}</h2>
-		<p><a href="{% url "cliente_editar" cliente.id_cliente %}">Editar cliente</a></p>
-		<p>Identiicación : {{cliente.id_cliente}}</p>
-		<p>Nombre : {{cliente.nombre}}</p>
-		<p>Edad : {{cliente.edad}}</p>
-		<p>Teléfono : {{cliente.telefono}}</p>
-		<p>Sexo : {{cliente.sexo}}</p>
-		<p>Email : {{cliente.correo}}</p>
-		<p><a href="{% url "pasajes_cliente" cliente.id_cliente %}">Ver vuelos</a>
+	<div class="panel panel-default">
+			<div class="panel-body">
+				<h2>{{cliente.nombre}}</h2>
+				<p><a href="{% url "cliente_editar" cliente.id_cliente %}">Editar cliente</a></p>
+				<p><a href="{% url "eliminar_cliente" cliente.id_cliente %}">Eliminar cliente</a></p>
+				<p>Identiicación : {{cliente.id_cliente}}</p>
+				<p>Nombre : {{cliente.nombre}}</p>
+				<p>Edad : {{cliente.edad}}</p>
+				<p>Teléfono : {{cliente.telefono}}</p>
+				<p>Sexo : {{cliente.sexo}}</p>
+				<p>Email : {{cliente.correo}}</p>
+				<p><a href="{% url "pasajes_cliente" cliente.id_cliente %}">Ver vuelos</a></p>
+				<p><a href="{% url "pasaje_crear"%}">Añadir pasaje de vuelo</a></p>
+			</div>
+	</div>
 {% endblock %}

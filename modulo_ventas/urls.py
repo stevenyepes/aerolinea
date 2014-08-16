@@ -21,4 +21,6 @@ urlpatterns = patterns('',
     url(r'^aerolinea/cliente/pasajes/(?P<id_cliente>\d+)/$','aerolinea.views.pasajes_cliente',name='pasajes_cliente'),
     url(r'^aerolinea/vuelos/(?P<id_vuelo>\d+)/$','aerolinea.views.vuelo_detalle',name='vuelo_detalle'),
     url(r'^aerolinea/vuelos/pasajeros/(?P<id_vuelo>\d+)/$','aerolinea.views.pasajeros',name='pasajeros'),
+    url(r'^aerolinea/cliente/eliminar/(?P<id_cliente>\d+)/$','aerolinea.views.eliminar_cliente',name='eliminar_cliente'),
+    url(r'^aerolinea/registrar/pasaje/$','aerolinea.views.pasaje_crear',name='pasaje_crear'),
 )

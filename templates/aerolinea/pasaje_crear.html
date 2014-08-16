@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Añadir Pasaje de Vuelo {% endblock %}
+{% block content %}
+<div class="panel panel-default">
+			<div class="panel-body">
+				<form action= "" method="post">{% csrf_token %}
+					{% include "aerolinea/form_snippets.html"%}
+					<button type="submit" class="btn btn-primary">Registrar</button>
+				</form>
+			</div>
+		</div>
+{% endblock %}

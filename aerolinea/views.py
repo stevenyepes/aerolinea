@@ -4,7 +4,7 @@ from django.http import HttpResponse, Http404
 from aerolinea.models import Cliente, Vuelo, Pasaje
 from django.shortcuts import get_object_or_404, render_to_response, redirect
 from django.template import RequestContext
-from aerolinea.form import ClienteForm, VueloForm
+from aerolinea.form import ClienteForm, VueloForm, PasajeForm
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 
@@ -55,7 +55,7 @@ def cliente_editar(request,id_cliente):
 		form = ClienteForm(request.POST, instance=cliente)
 		if form.is_valid():
 			form.save()
-			return redirect('videojuegos')
+			return redirect('vista_clientes')
 
 	else:
 		form = ClienteForm(instance=cliente)
@@ -73,3 +73,19 @@ def vuelo_detalle(request,id_vuelo):
 def pasajeros(request,id_vuelo):
 	pasajes = Pasaje.objects.filter(vuelo = id_vuelo)
 	return  render_to_response('aerolinea/pasajeros.html',{'pasajes': pasajes})
+
+def eliminar_cliente(request, id_cliente):
+	cliente = get_object_or_404(Cliente,pk=id_cliente)
+	cliente.delete()
+	return redirect('vista_clientes')
+
+
+def  pasaje_crear(request):
+	if request.method == 'POST':
+		form = PasajeForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('vista_clientes')
+	else:
+		form = PasajeForm()
+	return render_to_response('aerolinea/pasaje_crear.html',{'form': form}, context_instance = RequestContext(request))
