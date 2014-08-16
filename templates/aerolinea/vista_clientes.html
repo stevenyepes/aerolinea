@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Clientes {% endblock %}
+{% block content %}
+	<p><a href="{% url "cliente_crear" %}"> Registrar Cliente</a></p>
+	{% for cliente in clientes %}
+	<div class="panel panel-default">
+			<div class="panel-body">
+				<a href="{% url "cliente_detalle" cliente.id_cliente %}">{{cliente.nombre}} </a><br/>
+			</div>
+	</div>
+	{% endfor %}
+{% endblock %}

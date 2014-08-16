@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %} Aerolinea {% endblock %}
+{% block content %}
+	<p><a href="{% url "vuelo_crear" %}"> Registrar Vuelo</a></p>
+	{% for vuelo in vuelos %}
+	<a href="{% url "vuelo_detalle" vuelo.id_vuelo %}">{{vuelo.id_vuelo}}</a><br/>
+	{% endfor %}
+	
+{% endblock %}

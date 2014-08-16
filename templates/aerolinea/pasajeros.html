@@ -1,0 +1,11 @@
+{% extends "base.html"%}
+{% block title %} Detalle del Cliente{% endblock %}
+{% block content %}
+	{% for pasaje in pasajes %}
+	<div class="panel panel-default">
+			<div class="panel-body">
+				<a href="{% url "cliente_detalle" pasaje.cliente.id_cliente %}">{{pasaje.cliente}} </a><br/>
+			</div>
+	</div>
+	{% endfor %}
+{% endblock %}

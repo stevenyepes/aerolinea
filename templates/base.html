@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title> Aerolinea  | {% block title %}Inicio{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/media/css/bootstrap.css"> 
+</head>
+<body>
+	<div id="header">
+			<nav class="navbar navbar-default" role="navigation">
+  <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#" ><img src="#" border="0" alt=""></a>
+  </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url "aerolinea" %}">Inicio</a></li>
+      <li><a href="{% url "vista_clientes" %}">Clientes</a></li>
+      <li><a href="{% url "vuelos" %}">Vuelos</a></li>
+  </div>
+</nav>
+
+
+		{% if user.is_authenticated %}
+			<p>Bienvenido, <b>{{user.username}} | <a href="{% url "aerolinea"%}">Logout</a> </b></p>
+			
+		{% else %}
+			<p>Bienvenido. Por favor <a href="{% url "aerolinea" %}">Login</a></p>
+		{% endif %}
+
+		<h1>Aerolinea <small>Bienvenido</small></h1>
+	</div>
+	<div id= "content">
+		{% block content %} {% endblock %}		
+	</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base.html"%}
+{% block title %} Detalle del Cliente{% endblock %}
+{% block content %}
+	{% for pasaje in pasajes %}
+		<div class="panel panel-default">
+			<div class="panel-body">
+			  	<p>Codigo de vuelo : {{pasaje.numero_pasaje}}</p>
+				<p>Cliente : {{pasaje.cliente}}</p>
+				<p>Vuelo : {{pasaje.vuelo}}</p>
+				<p>Clase : {{pasaje.clase}}</p>
+				<p>Valor : {{pasaje.valor}}</p>
+				<p>Asiento : {{pasaje.asiento}}</p>
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

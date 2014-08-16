@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{%block title %} Editar Cliente {% endblock %}
+{% block content %}
+	<div class="panel panel-default">
+			<div class="panel-body">
+				<form action= "" method="post">{% csrf_token %}
+				{% include "aerolinea/form_snippets.html"%}
+				<input type="submit" value="Submit" />
+				</form>
+			</div>
+	</div>
+{% endblock %}

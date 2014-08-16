@@ -1,0 +1,16 @@
+{% extends "base.html"%}
+{% block title %} Detalle del Vuelo{% endblock %}
+{% block content %}
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<p>Id Vuelo: {{vuelo.id_vuelo}}</p>
+				<p>Compañia: {{vuelo.compania}}</p>
+				<p>Itinerario: {{vuelo.itinerario}}</p>
+				<p>Capacidad: {{vuelo.capacidad}}</p>
+				<p>Modelo del Avion: {{vuelo.modelo_avion}}</p>
+				<p>Numero de vuelo: {{vuelo.numero_vuelo}}</p>
+				<p><a href="{% url "pasajeros" vuelo.id_vuelo %}">Ver pasajeros</a></p>
+			</div>
+		</div>
+
+{% endblock %}
